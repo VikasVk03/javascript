@@ -80,5 +80,5 @@ console.log(instructor)
 [
     {},
     {},
-    {},
+    {}
 ]

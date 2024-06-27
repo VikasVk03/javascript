@@ -57,4 +57,28 @@ const users = [
 // console.log(Object.values(Tinder))
 // console.log(Object.entries(Tinder))
 
-console.log(Tinder.hasOwnProperty("vikas")) // to know ( value ) is present or not
+// console.log(Tinder.hasOwnProperty("vikas")) // to know ( value ) is present or not
+
+const course = {
+    courseName: "JS in hindi",
+    price: "999",
+    courseInstructor: "hitesh",
+}
+
+// course.courseInstructor
+const {courseInstructor: instructor} = course
+
+console.log(course.courseInstructor)
+console.log(instructor)
+
+// {
+//     name: "vikas",
+//     course: "js in hindi",
+//     price: "free",
+// }
+
+[
+    {},
+    {},
+    {},
+]

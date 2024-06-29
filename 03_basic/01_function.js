@@ -38,4 +38,34 @@ function LoginUserMessage(username) {
 }
 
 // console.log(LoginUserMessage("vikas"))
-console.log(LoginUserMessage())
+// console.log(LoginUserMessage())
+
+function calculateCartPrice(val1, val2, ...num1) { // ... (3 time dot) is known as rest and spread operator depending use cases... in this case it is rest operator
+    return num1
+}
+
+// console.log(calculateCartPrice(200, 400, 500, 2000))
+
+const user = {
+    username: "vikas",
+    prices: 199
+}
+
+function handleObject(anyobject) {
+    console.log(`User name is ${anyobject.username} and the price is ${anyobject.price}`);
+}
+
+// handleObject(user)
+handleObject({
+    username: "manoj",
+    price: 399
+})
+
+const myNewArray = [100, 200, 300, 400]
+
+function returnsecondValue(getArray){
+    return getArray[1]
+}
+
+// console.log(returnsecondValue(myNewArray))
+console.log(returnsecondValue([200, 400, 500, 699]))

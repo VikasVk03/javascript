@@ -8,9 +8,9 @@ const UserIsLoggedIn = true
 
 // >, <, >=, <=, 
 // = assignment operator
-// == equal operator, checks value is equal 
-// === strict equal, cheque value and datatype is equal or not 
-// !== not equal value,
+// == equal operator, checks value is equal. 
+// === strict equality, check value and datatype are equal. 
+// !== strict inequality, check value and datatype are not equal.
 
 // if else
 const temperature = 51

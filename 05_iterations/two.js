@@ -19,7 +19,7 @@
 
 // do while loop
 
-let score = 1
+let score = 1 // in do while loop first the work is done then then condition is checked.
 do {
     console.log(`value of score is ${score}`)
     score++

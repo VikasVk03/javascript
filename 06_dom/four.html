@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chai aur Code | dom</title>
+</head>
+
+<body style="background-color: #212121; color: #fff">
+    <ul class="languages">
+        <li>javascript</li>
+    </ul>
+</body>
+<script>
+    function addlanguage(langName) {
+        const li = document.createElement("li");
+        li.innerHTML = `${langName}`;
+        document.querySelector(".languages").appendChild(li);
+    }
+// more optimized way to add same li element.... in above function traverse all element then apenchild ... in below it directly put the child
+    function addOptilanguage(langName) {
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.languages').appendChild(li)
+    }
+
+    addlanguage("python");
+    addlanguage("python");
+    addlanguage("python");
+    addOptilanguage('java');
+</script>
+
+</html>

@@ -94,3 +94,7 @@ const myarr = document.getElementByClassName('list-item')
 // to convert HTML collection in array
 Array.from(myarr) // now we can apply all array property
 
+########################
+below are performed on four.html
+
+*****edit and remove dom element

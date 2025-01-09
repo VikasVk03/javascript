@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Basics</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+
+            <!-- <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" onclick="alert('owl clicked')" ></li> -->
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    // one way of writing event is inline in html file as attribute. ex onClick="alert('owl clicked')" 
+    // but the above technique is not feasible as when website scals up this causes error, in react it works finely as react is scalable.
+
+    // ###### 2nd approach #####
+    // document.getElementById('owl').onclick = function(e){
+    //     alert('owl clicked') // this works but it provide less control over event features and propagation
+    //     console.log(e)
+    // }
+
+    // ##### 3rd approach #######
+    // niche function ke bad jo false likha hi third parameter hi aur yehi event propagation define krta hi event keliye aur by default false hi raheta hi
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     alert('owl clicked')
+    //     console.log(e)
+    // }, false)
+
+    // by console loging event we get object 
+    // type, timestamped, defaultPrevented
+    // target, toElement, srcElement, currentTarget
+    // screenX, screenY, clientX, clientY
+    // altkey, ctrlkey, shiftkey, keyCode- learn and understand 
+
+    // ( below this is the way of tracking dom element)
+    // event propagation has two context event bubbling(this goes from bottom to top) and event capturing (this goes form top to bottom)
+
+
+    /* event bubbling
+    when owl is clicked it prints: 
+    owl clicked 
+    clicked inside the ul
+    this give example of event bubbling as it first selects child element(li/img) then parent element(ul)
+    */
+
+    // document.getElementById('images').addEventListener('click', function(e){  
+    //     console.log("clicked inside the ul")
+    // }, false)
+    
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log('owl clicked')
+    // }, false) 
+
+
+
+    /* event capturing
+        when owl is clicked it prints:
+        clicked inside the ul
+        owl clicked
+        this give example of event capturing it first selects parent (ul) and then child (li/img)
+    */
+    // document.getElementById('images').addEventListener('click', function(e){  
+    //     console.log("clicked inside the ul")
+    // }, false)
+    
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log('owl clicked')
+    //     e.stopPropagation(); // stops the event propagation
+    // }, true) 
+    // if both have same third parameter(either true or false) and if we change one to true and other to false then the event having false will prints first.
+
+    // document.getElementById('google').addEventListener('click', function(e){
+    //     e.preventDefault()
+    //     console.log('google clicked')
+    // })
+    
+    // #### code for removing image from list
+    document.querySelector('#images').addEventListener('click', function(e){
+        // console.log(e.target.parentNode);
+    //     let removeImg = e.target.parentNode; // parentNode give parent element that is it give acces to one level up where ever it is clicked
+    //     removeImg.remove(); // remove() method to remove select item.
+    // the problem with above is that when li is clicked it removes ul tag.
+    
+    console.log(e.target.tagName)
+    if(e.target.tagName === 'IMG'){
+        console.log(e.target.id)
+        let removeImg = e.target.parentNode
+        removeImg.remove()
+    }
+
+    })
+</script>
+</html>
